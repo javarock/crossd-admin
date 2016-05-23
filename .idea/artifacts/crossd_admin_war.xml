@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="crossd-admin:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="crossd-admin.war">
-      <element id="artifact" artifact-name="crossd-admin:war exploded" />
-    </root>
-  </artifact>
-</component>
