@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="fzb.privilege">
+
+    <resultMap type="Privilege" id="privilege">
+        <result property="priId" column="pri_id" jdbcType="INTEGER" javaType="Integer" />
+        <result property="priName" column="pri_name" jdbcType="VARCHAR" javaType="String" />
+        <result property="description" column="description" jdbcType="VARCHAR" javaType="String" />
+        <result property="urlPath" column="url_path" jdbcType="VARCHAR" javaType="String" />
+    </resultMap>
+
+    <sql id = "searchCriteria">
+        <trim prefix = "where" prefixOverrides="and">
+            <if test="priId != null ">
+                and priId = #{priId}
+            </if>
+            <if test = "priName !=null and priName != ''">
+                and priName = #{priName}
+            </if>
+            <if test = "adminRealName != null and adminRealName != ''">
+                and description = #{description}
+            </if>
+            <if test = "createTime != null and createTime != ''">
+                and urlPath = #{urlPath}
+            </if>
+
+        </trim>
+    </sql>
+
+    <select id="listAllByCriteria" parameterType="java.util.Map" resultMap="privilege">
+        select * from tb_privilege_def
+        <include refid="searchCriteria"></include>
+        order by pri_id
+        limit #{from},#{number}
+    </select>
+
+    <select id="countAllByCriteria" parameterType="java.util.Map" resultType = "Integer">
+        select count(1) from tb_privilege_def
+        <include refid="searchCriteria"></include>
+    </select>
+
+    <select id="listAll" resultMap="privilege">
+		select * from tb_privilege_def order by pri_id
+	</select>
+</mapper>

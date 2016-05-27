@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="fzb.admin">
+
+    <resultMap type="Admin" id="admin">
+        <result property="adminName" column="admin_name" jdbcType="VARCHAR" javaType="String" />
+        <result property="adminPassword" column="admin_password" jdbcType="VARCHAR" javaType="String" />
+        <result property="adminRealName" column="admin_real_name" jdbcType="VARCHAR" javaType="String" />
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP" javaType="Date" />
+        <result property="lastLoginTime" column="last_login_time" jdbcType="TIMESTAMP" javaType="Date" />
+        <result property="isSuperAdmin" column="is_super_admin" jdbcType="TINYINT" javaType="Boolean" />
+    </resultMap>
+
+    <sql id = "searchCriteria">
+        <trim prefix = "where" prefixOverrides="and">
+            <if test="adminName != null  and adminName != ''">
+                and admin_name = #{adminName}
+            </if>
+            <if test = "adminPassword !=null and adminPassword != ''">
+                and admin_password = #{adminPassword}
+            </if>
+            <if test = "adminRealName != null and adminRealName != ''">
+                and admin_real_name = #{adminRealName}
+            </if>
+            <if test = "createTime != null and createTime != ''">
+                and create_time = #{createTime}
+            </if>
+
+        </trim>
+    </sql>
+
+    <insert id="addAdmin" parameterType="Admin">
+	    insert into tb_admin(admin_name,admin_password,admin_real_name,create_time,last_login_time,is_super_admin)
+	     values(#{adminName},#{adminPassword},#{adminRealName},#{createTime},#{lastLoginTime},#{isSuperAdmin})
+	</insert>
+
+    <select id="listAllByCriteria" parameterType="java.util.Map" resultMap="admin">
+        select * from tb_admin
+        <include refid="searchCriteria"></include>
+        order by create_time desc
+        limit #{from},#{number}
+    </select>
+
+    <select id="countAllByCriteria" parameterType="java.util.Map" resultType = "Integer">
+        select count(1) from tb_admin
+        <include refid="searchCriteria"></include>
+    </select>
+
+    <select id="checkLogin" parameterType = "java.util.Map" resultMap = "admin" >
+		select * from tb_admin where admin_name = #{adminName} and admin_password = #{adminPassword} limit 0,1
+	</select>
+
+    <delete id="deleteAdmin" parameterType = "String">
+		delete from tb_admin where admin_name = #{adminName}
+	</delete>
+
+    <update id="updateLoginTime" parameterType = "java.util.Map">
+		update tb_admin set last_login_time = #{lastLoginTime} where admin_name = #{adminName}
+	</update>
+</mapper>
+
+
+
+

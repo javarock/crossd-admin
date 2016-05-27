@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="jinniu.systemLog">
+
+    <resultMap id="systemLogMap" type="SystemLog">
+        <result property="id" column="id" jdbcType="INTEGER" javaType="Integer" />
+        <result property="userName" column="userName" jdbcType="VARCHAR" javaType="String" />
+        <result property="operate" column="operate" jdbcType="VARCHAR" javaType="String" />
+        <result property="operateTime" column="operateTime" jdbcType="TIMESTAMP" javaType="String" />
+        <result property="className" column="className" jdbcType="VARCHAR" javaType="String" />
+        <result property="description" column="description" jdbcType="VARCHAR" javaType="String" />
+    </resultMap>
+
+
+
+
+    <insert id="add" parameterType="SystemLog">
+        insert into `tb_syslog`(
+        `id`,`userName`,`operateModule`,`operate`,`operateTime`,`className`,`description`
+        ) VALUES (
+        NULL,#{userName},#{operateModule},#{operate},CURRENT_TIMESTAMP,#{className},#{description});
+    </insert>
+
+
+    <!-- 搜索存在用户输入为空，所以需要判断 -->
+    <sql id="searchCriteria">
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="userName != null and userName != '' ">
+                and userName = #{userName}
+            </if>
+            <if test="operateModule != null and operateModule != '' ">
+                and operateModule like CONCAT(CONCAT('%', #{operateModule}), '%')
+            </if>
+            <if test="operate != null and operate != '' ">
+                and operate like CONCAT(CONCAT('%', #{operate}), '%')
+            </if>
+            <if test="operateTime != null and operateTime != '' ">
+                and operateTime = #{operateTime}
+            </if>
+            <if test="className != null and className != '' ">
+                and className like CONCAT(CONCAT('%', #{className}), '%')
+            </if>
+            <if test="description != null and description != '' ">
+                and description = #{description}
+            </if>
+        </trim>
+    </sql>
+
+
+    <select id="listAllByCriteria" parameterType="java.util.Map" resultMap="systemLogMap">
+        select
+        <include refid="Base_Column_List" />
+        from tb_syslog
+        <include refid="searchCriteria"></include>
+        order by operateTime desc
+        limit #{from},#{number}
+    </select>
+
+    <select id="countAllByCriteria" parameterType="java.util.Map" resultType = "Integer">
+        select count(1) from tb_syslog
+        <include refid="searchCriteria"></include>
+    </select>
+
+    <sql id="Base_Column_List">
+		id, userName, operateModule, operate, operateTime, className, description
+	</sql>
+
+</mapper>

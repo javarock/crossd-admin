@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.crossd.mapper.ShareMapper">
+
+    <resultMap type="Share" id="adminMap">
+        <result property="id" column="id" jdbcType="INTEGER" javaType="Integer" />
+        <result property="imgs" column="imgs" jdbcType="VARCHAR" javaType="String" />
+        <result property="description" column="description" jdbcType="VARCHAR" javaType="String" />
+        <result property="praiseCount" column="praise_count" jdbcType="INTEGER" javaType="INTEGER" />
+        <result property="scanCount" column="scan_count" jdbcType="INTEGER" javaType="INTEGER" />
+        <result property="commentCount" column="comment_count" jdbcType="INTEGER" javaType="INTEGER" />
+        <result property="userId" column="user_id" jdbcType="INTEGER" javaType="INTEGER" />
+        <result property="status" column="status" jdbcType="INTEGER" javaType="INTEGER" />
+        <result property="topicId" column="topic_id" jdbcType="INTEGER" javaType="INTEGER" />
+        <result property="createTime" column="create_ime" jdbcType="INTEGER" javaType="INTEGER" />
+    </resultMap>
+
+    <select id="listAllShare" parameterType="java.util.Map" resultMap="adminMap">
+
+        select * from tb_share order by create_time desc
+
+    </select>
+
+</mapper>
+
+
+
+

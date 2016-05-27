@@ -1,0 +1,34 @@
+@CHARSET "UTF-8";
+
+body {
+	font-family: Arial, sans-serif;
+	font-size: 0.85em;
+}
+p {
+	margin: 1em 0;
+}
+
+/* all 'panes' */
+.ui-layout-pane {
+	background: #eee;
+	border: 1px solid #eee;
+	padding: 10px;
+	overflow: auto;
+}
+
+/* all 'resizer-bars' */
+.ui-layout-resizer {
+	background: #ccc;
+}
+
+/* all 'toggler-buttons' */
+.ui-layout-toggler {
+	background: #565656;
+}
+
+
+#tabs li .ui-icon-close {
+	float: left;
+	margin: 0.4em 0.2em 0 0;
+	cursor: pointer;
+}

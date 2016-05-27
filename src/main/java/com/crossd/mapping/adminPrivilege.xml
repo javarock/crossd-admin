@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="fzb.adminPrivilege">
+
+    <resultMap type="AdminPrivilege" id="adminPrivilege">
+        <result property="adminPriId" column="id" jdbcType="INTEGER" javaType="Integer" />
+        <result property="adminName" column="admin_name" jdbcType="VARCHAR" javaType="String" />
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP" javaType="Date" />
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP" javaType="Date" />
+        <result property="readable" column="readable" jdbcType="TINYINT" javaType="Boolean" />
+        <result property="writable" column="writable" jdbcType="TINYINT" javaType="Boolean" />
+
+        <result property="privilegeId" column="pri_id" jdbcType="INTEGER" javaType="Integer" />
+        <result property="priName" column="pri_name" jdbcType="VARCHAR" javaType="String" />
+        <result property="description" column="description" jdbcType="VARCHAR" javaType="String" />
+        <result property="urlPath" column="url_path" jdbcType="VARCHAR" javaType="String" />
+    </resultMap>
+
+
+    <sql id = "searchCriteria">
+        <trim prefix = "where" prefixOverrides="and">
+            <if test="priId != null ">
+                and pri_id = #{priId}
+            </if>
+            <if test = "priName !=null and priName != ''">
+                and pri_name = #{priName}
+            </if>
+        </trim>
+    </sql>
+
+    <select id="listAllByCriteria" parameterType="java.util.Map" resultMap="adminPrivilege">
+        select * from tb_admin_privilege
+        <include refid="searchCriteria"></include>
+        order by create_time desc
+        limit #{from},#{number}
+    </select>
+
+    <select id="countAllByCriteria" parameterType="java.util.Map" resultType = "Integer">
+        select count(1) from tb_admin_privilege
+        <include refid="searchCriteria"></include>
+    </select>
+
+    <select id="listAdminPrivilege" parameterType="String" resultMap = "adminPrivilege">
+		select id, admin_name,privilege_id,create_time,update_time,readable,writable,
+		pri_name,description,url_path
+		from tb_admin_privilege a,tb_privilege_def b
+		where a.admin_name = #{adminName} and a.privilege_id = b.pri_id
+	</select>
+
+    <select id="listPrivilegeAdmin" parameterType="String" resultMap = "adminPrivilege">
+		select id, admin_name,pri_id,create_time,update_time,readable,writable,
+		pri_name,description,url_path
+		from tb_admin_privilege a right join tb_privilege_def b
+		on a.admin_name = #{adminName} and a.privilege_id = b.pri_id
+	</select>
+
+    <!-- 批量添加权限 -->
+    <insert id="addBatchPri" useGeneratedKeys="true" parameterType="java.util.List">
+        <selectKey resultType="Integer" keyProperty="id" order="AFTER">
+            SELECT
+            LAST_INSERT_ID()
+        </selectKey>
+        insert into tb_admin_privilege (admin_name,privilege_id,create_time,update_time,readable,writable)
+        values
+        <foreach collection="list" item="item" index="index" separator="," >
+            (#{item.adminName},#{item.privilegeId},#{item.createTime},#{item.updateTime},#{item.readable},#{item.writable})
+        </foreach>
+    </insert>
+
+    <delete id="deletePri" parameterType = "String">
+		delete from tb_admin_privilege where admin_name = #{adminName}
+	</delete>
+
+</mapper>
