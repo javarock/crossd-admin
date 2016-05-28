@@ -63,9 +63,12 @@
 					colNames : ['动态ID','动态imgs','描述','被赞数', '浏览数', '评论数','用户id','状态','话题id','创建时间','操作'],
 					colModel : [
 						{name : 'id',index : 'id',align : "center",width : 25},
-						{name : 'imgs',index : 'imgs',align : "center",width : 40,
+						{name : 'imgs',index : 'imgs',align : "center",width : 80,
 							formatter:function(cellvalue, options, rowObject){
-								return formatterImgUrl(rowObject.img_url);
+								var imgs = rowObject.imgs
+								var img_urls = imgs.split(",");
+								var hostname = "http://image.crossd.me/";
+								return "<img src="+hostname + img_urls[0]+" height='60' width='80'>";
 							},
 						},
 						{name : 'description',index : 'description',align : "center",width : 80},

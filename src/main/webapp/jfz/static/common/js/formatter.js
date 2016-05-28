@@ -66,12 +66,16 @@ function formatterStatus2(status) {
 	}
 }
 
-//前端商品icon显示
-function formatterImgUrl(img_url){
-	if (img_url == "") {
+//前端图片URL 显示
+function formatterImgUrl(imgs){
+	console.log(imgs);
+	if (imgs == "") {
 		return "<img height='40' width='40' border='0'>";
 	}else{
-		return "<img src="+img_url+" height='40' width='40'>";
+		var img_urls = imgs.split(",");
+		var hostname = "http://image.crossd.me/";
+		alert(hostname +　img_urls[0]);
+		return "<img src="+hostname + img_urls[0]+" height='40' width='40'>";
 	}
 }
 

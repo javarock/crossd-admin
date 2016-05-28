@@ -193,6 +193,14 @@
 							</li>
 
                         </c:if>
+
+						<c:if test="${sessionScope.admin.privlegeMap.withDrawBill.readable||sessionScope.admin.isSuperAdmin}">
+
+							<li link="${path }iframe?data=share/listImgs">
+								<span>照片圈</span>
+							</li>
+
+						</c:if>
 					</ul>
                 </div>
 

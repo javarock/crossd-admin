@@ -1,5 +1,6 @@
 package com.crossd.service;
 
+import com.crossd.bean.ImgUrl;
 import com.crossd.domain.Share;
 
 import java.util.List;
@@ -17,4 +18,6 @@ public interface ShareService {
      * @return
      */
      List<Share> pageShare(Share share, int pageNo, int pageSize);
+
+     List<ImgUrl> pageShareImgs(int pageNo, int pageSize);
 }

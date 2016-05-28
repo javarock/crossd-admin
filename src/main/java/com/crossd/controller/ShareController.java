@@ -1,6 +1,7 @@
 package com.crossd.controller;
 
 import com.crossd.bean.Grid;
+import com.crossd.bean.ImgUrl;
 import com.crossd.domain.Share;
 import com.crossd.service.ShareService;
 import com.crossd.tools.JsonTimeFormatConfig;
@@ -57,6 +58,41 @@ public class ShareController {
         JSONObject jsonObject = JSONObject.fromObject(shareGrid, JsonTimeFormatConfig.getJsonConfig());
 
         System.out.println(jsonObject.toString());
+        return jsonObject.toString();
+    }
+
+    /**
+     * 跳转jsp
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/listImgs", method = RequestMethod.GET)
+    public String listImgs() throws Exception {
+        return "jinniu/shareImgs";
+    }
+
+    /**
+     * 加载列表数据
+     * @param pageNo  当前页 从第1页开始
+     * @param pageSize  每页大小
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = { "/dataImgs" }, method = RequestMethod.GET)
+    public Object dataImgs(@RequestParam("page") int pageNo,
+                       @RequestParam("rows") int pageSize){
+
+        Page<ImgUrl> imgUrls = (Page<ImgUrl>)shareService.pageShareImgs(pageNo, pageSize);
+
+        //转化成页面需要参数
+        Grid<ImgUrl> shareGrid = new Grid<ImgUrl>();
+        shareGrid.setRows(imgUrls);
+        shareGrid.setPage(imgUrls.getPageNum());
+        shareGrid.setTotal(imgUrls.getPages());
+        shareGrid.setRecords((int)imgUrls.getTotal());
+
+        JSONObject jsonObject = JSONObject.fromObject(shareGrid, JsonTimeFormatConfig.getJsonConfig());
+
         return jsonObject.toString();
     }
 }

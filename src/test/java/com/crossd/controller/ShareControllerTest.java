@@ -27,4 +27,15 @@ public class ShareControllerTest {
         Assert.assertNotNull(data);
 
     }
+
+    @Test
+    public void testDataImgs(){
+
+        Object data = shareController.dataImgs(1,10);
+
+        System.out.println(data.toString());
+
+        Assert.assertNotNull(data);
+
+    }
 }

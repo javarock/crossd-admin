@@ -15,4 +15,6 @@ public interface ShareMapper {
      * @return
      */
     List<Share>  listAllShare();
+
+    list
 }
