@@ -194,6 +194,14 @@
 
                         </c:if>
 
+                        <c:if test="${sessionScope.admin.privlegeMap.withDrawBill.readable||sessionScope.admin.isSuperAdmin}">
+
+                        	<li link="${path }iframe?data=share/listImgsList">
+                        		<span>照片集锦</span>
+                        	</li>
+
+                        </c:if>
+
 						<c:if test="${sessionScope.admin.privlegeMap.withDrawBill.readable||sessionScope.admin.isSuperAdmin}">
 
 							<li link="${path }iframe?data=share/listImgs">
@@ -201,7 +209,8 @@
 							</li>
 
 						</c:if>
-					</ul>
+
+
                 </div>
 
 

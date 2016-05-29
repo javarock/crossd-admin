@@ -15,7 +15,7 @@
 
 </head>
 <body>
-<div class="container">
+<div class="container" style = "height:200px">
 
 	<%--<header class="codrops-header">--%>
 		<%--<nav class="codrops-demos">--%>
@@ -33,43 +33,7 @@
 			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
 			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
 			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-			<li><a href="#"><img src="../jfz/static/shareImg/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+
 		</ul>
 	</section>
 

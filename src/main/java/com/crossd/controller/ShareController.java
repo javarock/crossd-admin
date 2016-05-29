@@ -1,7 +1,7 @@
 package com.crossd.controller;
 
 import com.crossd.bean.Grid;
-import com.crossd.bean.ImgUrl;
+import com.crossd.bean.RichShare;
 import com.crossd.domain.Share;
 import com.crossd.service.ShareService;
 import com.crossd.tools.JsonTimeFormatConfig;
@@ -46,7 +46,7 @@ public class ShareController {
     public Object data(@RequestParam("page") int pageNo,
                        @RequestParam("rows") int pageSize){
 
-        Page<Share> pages = (Page<Share>)shareService.pageShare(null, pageNo, pageSize);
+        Page<Share> pages = shareService.pageShare(null, pageNo, pageSize);
 
         //转化成页面需要参数
         Grid<Share> shareGrid = new Grid<Share>();
@@ -66,9 +66,9 @@ public class ShareController {
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "/listImgs", method = RequestMethod.GET)
-    public String listImgs() throws Exception {
-        return "jinniu/shareImgs";
+    @RequestMapping(value = "/listImgsList", method = RequestMethod.GET)
+    public String listImgsList() throws Exception {
+        return "jinniu/shareImgsList";
     }
 
     /**
@@ -82,10 +82,10 @@ public class ShareController {
     public Object dataImgs(@RequestParam("page") int pageNo,
                        @RequestParam("rows") int pageSize){
 
-        Page<ImgUrl> imgUrls = (Page<ImgUrl>)shareService.pageShareImgs(pageNo, pageSize);
+        Page<RichShare> imgUrls = shareService.pageRichShareImgs(pageNo, pageSize);
 
         //转化成页面需要参数
-        Grid<ImgUrl> shareGrid = new Grid<ImgUrl>();
+        Grid<RichShare> shareGrid = new Grid<RichShare>();
         shareGrid.setRows(imgUrls);
         shareGrid.setPage(imgUrls.getPageNum());
         shareGrid.setTotal(imgUrls.getPages());
@@ -94,5 +94,18 @@ public class ShareController {
         JSONObject jsonObject = JSONObject.fromObject(shareGrid, JsonTimeFormatConfig.getJsonConfig());
 
         return jsonObject.toString();
+    }
+
+
+
+
+    /**
+     * 跳转jsp
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/listImgs", method = RequestMethod.GET)
+    public String listImgs() throws Exception {
+        return "jinniu/shareImgs";
     }
 }

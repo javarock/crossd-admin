@@ -1,7 +1,9 @@
 package com.crossd.service;
 
 import com.crossd.bean.ImgUrl;
+import com.crossd.bean.RichShare;
 import com.crossd.domain.Share;
+import com.github.pagehelper.Page;
 
 import java.util.List;
 
@@ -17,7 +19,7 @@ public interface ShareService {
      * @param pageSize
      * @return
      */
-     List<Share> pageShare(Share share, int pageNo, int pageSize);
+     Page<Share> pageShare(Share share, int pageNo, int pageSize);
 
-     List<ImgUrl> pageShareImgs(int pageNo, int pageSize);
+     Page<RichShare> pageRichShareImgs(int pageNo, int pageSize);
 }

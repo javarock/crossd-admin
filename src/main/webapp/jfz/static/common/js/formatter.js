@@ -68,13 +68,12 @@ function formatterStatus2(status) {
 
 //前端图片URL 显示
 function formatterImgUrl(imgs){
-	console.log(imgs);
+
 	if (imgs == "") {
 		return "<img height='40' width='40' border='0'>";
 	}else{
 		var img_urls = imgs.split(",");
 		var hostname = "http://image.crossd.me/";
-		alert(hostname +　img_urls[0]);
 		return "<img src="+hostname + img_urls[0]+" height='40' width='40'>";
 	}
 }
