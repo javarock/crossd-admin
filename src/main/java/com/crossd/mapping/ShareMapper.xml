@@ -37,9 +37,16 @@
 
     <select id="listAllRichShare" parameterType="java.util.Map" resultMap="richShareMap">
 
-        select * from tb_share order by create_time desc
+        select * from tb_share where status = 1
+        order by create_time desc
 
     </select>
+
+    <update id="updateShareStatus" parameterType="map">
+
+        update tb_share set status = #{to} where id = #{shareId} and status = #{from}
+
+    </update>
 
 </mapper>
 

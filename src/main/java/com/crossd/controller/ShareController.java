@@ -2,6 +2,7 @@ package com.crossd.controller;
 
 import com.crossd.bean.Grid;
 import com.crossd.bean.RichShare;
+import com.crossd.bean.Status;
 import com.crossd.domain.Share;
 import com.crossd.service.ShareService;
 import com.crossd.tools.JsonTimeFormatConfig;
@@ -57,7 +58,6 @@ public class ShareController {
 
         JSONObject jsonObject = JSONObject.fromObject(shareGrid, JsonTimeFormatConfig.getJsonConfig());
 
-        System.out.println(jsonObject.toString());
         return jsonObject.toString();
     }
 
@@ -80,7 +80,14 @@ public class ShareController {
     @ResponseBody
     @RequestMapping(value = { "/dataImgs" }, method = RequestMethod.GET)
     public Object dataImgs(@RequestParam("page") int pageNo,
-                       @RequestParam("rows") int pageSize){
+                       @RequestParam("rows") int pageSize,
+                           RichShare richShare){
+
+        int id = richShare.getId();
+        int userId = richShare.getUserId();
+        String img1 = richShare.getImg1();
+
+
 
         Page<RichShare> imgUrls = shareService.pageRichShareImgs(pageNo, pageSize);
 
@@ -96,6 +103,29 @@ public class ShareController {
         return jsonObject.toString();
     }
 
+    /**
+     * 下架分享动态
+     * @param shareId
+     */
+    @ResponseBody
+    @RequestMapping(value = {"/downOperate"},method = RequestMethod.POST)
+    public void  downOperate(@RequestParam("rowId") int shareId){
+
+        shareService.updateShareStatus(shareId, Status.UP,Status.DOWN);
+
+    }
+
+    /**
+     * 下架分享动态
+     * @param shareId
+     */
+    @ResponseBody
+    @RequestMapping(value = {"/upOperate"},method = RequestMethod.POST)
+    public void  upOperate(@RequestParam("rowId") int shareId){
+
+        shareService.updateShareStatus(shareId, Status.DOWN,Status.UP);
+
+    }
 
 
 

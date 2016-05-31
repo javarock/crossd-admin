@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="../jfz/static/common/css/input_file.css" type="text/css">
     <link rel="stylesheet" href="../jfz/static/common/css/input_text.css" type="text/css">
     <link rel="stylesheet" href="../jfz/static/common/css/add_form.css" type="text/css">
-	<title>金币商城</title>
+	<title>照片集锦</title>
 	<jsp:include page="/jfz/static/common/jsp/header.jsp" />
 	<jsp:include page="/jfz/static/common/jsp/bottom.jsp" />
 	
@@ -60,9 +60,10 @@
 				$("#goods_list").jqGrid({
 					url : dataUrl,
 					datatype : "json",
-					colNames : ['动态ID','图片1','图片2','图片3', '图片4', '图片5','图片6','图片7','图片8','图片9','操作'],
+					colNames : ['动态ID','用户id','图片1','图片2','图片3', '图片4', '图片5','图片6','图片7','图片8','图片9','操作'],
 					colModel : [
 						{name : 'id',index : 'id',align : "center",width : 25},
+						{name : 'userId',index : 'userId',align : "center",width : 25},
 						{name : 'img1',index : 'img1',align : "center",width : 80,
 							formatter:function(cellvalue, options, rowObject){
 							if(rowObject.img1 == ''){
@@ -121,9 +122,9 @@
 					],
 					autowidth:true,
 					height:600,
-					rowNum : 13,
+					rowNum : 15,
 					pager : '#goods_pager',
-					rowList : [13, 20, 30],
+					rowList : [15, 20, 30],
 					gridComplete: function(){
 						$(".viewGoods_btn").button();
 						$(".upGoods_btn").button();

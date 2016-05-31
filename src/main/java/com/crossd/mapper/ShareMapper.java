@@ -2,13 +2,13 @@ package com.crossd.mapper;
 
 import com.crossd.bean.RichShare;
 import com.crossd.domain.Share;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 /**
  * Created by nicholas.liu on 2016/5/25.
  */
-//@Repository
 public interface ShareMapper {
 
     /**
@@ -23,4 +23,5 @@ public interface ShareMapper {
      */
     List<RichShare>  listAllRichShare();
 
+    void updateShareStatus(@Param("shareId") int shareId, @Param("from") int from, @Param("to") int to);
 }

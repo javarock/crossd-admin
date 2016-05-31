@@ -87,4 +87,9 @@ public class ShareServiceImpl implements ShareService {
         return (Page<RichShare>)richShares;
 
     }
+
+    @Override
+    public void updateShareStatus(int shareId, int from, int to) {
+        shareMapper.updateShareStatus(shareId,from,to);
+    }
 }

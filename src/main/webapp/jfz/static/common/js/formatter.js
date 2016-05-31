@@ -46,9 +46,9 @@ function formatterStock(stock) {
 function formatterStatus(status) {
 	switch (status) {
 	case 0:
-		return "已下架";
+		return "<span class='color:yellow'>已下架</span>";
 	case 1:
-		return "已上架";
+		return "上架";
 	default:
 		return "未定义";
 	}

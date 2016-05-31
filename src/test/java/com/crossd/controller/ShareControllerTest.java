@@ -31,11 +31,16 @@ public class ShareControllerTest {
     @Test
     public void testDataImgs(){
 
-        Object data = shareController.dataImgs(1,10);
+        Object data = shareController.dataImgs(1,10,null);
 
         System.out.println(data.toString());
 
         Assert.assertNotNull(data);
 
+    }
+
+    @Test
+    public void testDownOperate(){
+        shareController.downOperate(182);
     }
 }
