@@ -10,9 +10,9 @@
     <!-- 时间滚动输出 level为 DEBUG 日志 -->
     <appender name="file—debug"
               class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>../logs/crossd-admin/jinniu-debug.log</file>
+        <file>../logs/crossd-admin/crossd-debug.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <FileNamePattern>../logs/crossd-admin/jinniu-debug.%d{yyyy-MM-dd}.log</FileNamePattern>
+            <FileNamePattern>../logs/crossd-admin/crossd-debug.%d{yyyy-MM-dd}.log</FileNamePattern>
             <!-- <MaxHistory>30</MaxHistory>-->
         </rollingPolicy>
         <encoder>
@@ -24,14 +24,14 @@
     <!-- 时间滚动输出 level为 ERROR 日志 -->
     <appender name="file—error"
               class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>../logs/crossd-admin/jinniu-error.log</file>
+        <file>../logs/crossd-admin/crossd-error.log</file>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>ERROR</level>
             <onMatch>ACCEPT</onMatch>
             <onMismatch>DENY </onMismatch>
         </filter>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <FileNamePattern>../logs/crossd-admin/jinniu-error.%d{yyyy-MM-dd}.log</FileNamePattern>
+            <FileNamePattern>../logs/crossd-admin/crossd-error.%d{yyyy-MM-dd}.log</FileNamePattern>
             <!-- <MaxHistory>30</MaxHistory>-->
         </rollingPolicy>
         <encoder>
