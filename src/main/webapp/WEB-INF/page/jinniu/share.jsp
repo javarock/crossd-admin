@@ -71,9 +71,9 @@
 								return "<img src="+hostname + img_urls[0]+" height='60' width='80'>";
 							},
 						},
-						{name : 'description',index : 'description',align : "center",width : 80},
+						{name : 'description',index : 'description',align : "center",width : 120},
 						{name : 'praiseCount',index : 'praiseCount',align : "center",width : 30},
-						{name : 'scanCount',index : 'scanCount',align : "center",width : 80},
+						{name : 'scanCount',index : 'scanCount',align : "center",width : 30},
 						{name : 'commentCount',index : 'commentCount',align : "center",width : 50},
 						{name : 'userId',index : 'userId',align : "center",width : 50},
 						{name : 'status',index : 'status',align : "center",width : 50,

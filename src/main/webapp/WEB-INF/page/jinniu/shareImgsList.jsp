@@ -64,7 +64,7 @@
 					colModel : [
 						{name : 'id',index : 'id',align : "center",width : 25},
 						{name : 'userId',index : 'userId',align : "center",width : 25},
-						{name : 'img1',index : 'img1',align : "center",width : 80,
+						{name : 'img1',index : 'img1',align : "center",width : 60,
 							formatter:function(cellvalue, options, rowObject){
 							if(rowObject.img1 == ''){
 							   return '';
@@ -72,22 +72,22 @@
 								return "<img src="+rowObject.img1+" height='60' width='80'>";
 							},
 						},
-                       {name : 'img2',index : 'img2',align : "center",width : 80,
+                       {name : 'img2',index : 'img2',align : "center",width : 60,
                        		formatter:function(cellvalue, options, rowObject){
                        			return "<img src="+rowObject.img2+" height='60' width='80'>";
                        		},
                        	},
-                       	{name : 'img3',index : 'img3',align : "center",width : 80,
+                       	{name : 'img3',index : 'img3',align : "center",width : 60,
                         	formatter:function(cellvalue, options, rowObject){
                         		return "<img src="+rowObject.img3+" height='60' width='80'>";
                         	},
                         },
-                       	{name : 'img4',index : 'img4',align : "center",width : 80,
+                       	{name : 'img4',index : 'img4',align : "center",width : 60,
                        		formatter:function(cellvalue, options, rowObject){
                        			return "<img src="+rowObject.img4+" height='60' width='80'>";
                        		},
                        	},
-                       {name : 'img5',index : 'img5',align : "center",width : 80,
+                       {name : 'img5',index : 'img5',align : "center",width : 60,
                                     formatter:function(cellvalue, options, rowObject){
                                     	return "<img src="+rowObject.img5+" height='60' width='80'>";
                                     },
