@@ -182,7 +182,7 @@
 					</ul>
                 </div>
                 
-               <h3>金币系统</h3>
+               <h3>鉴黄系统</h3>
                 <div>
                 	
                 	<ul class="menu" style="border:0;">
