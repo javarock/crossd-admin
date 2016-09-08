@@ -2,6 +2,7 @@ package com.crossd.controller;
 
 import com.crossd.bean.Grid;
 import com.crossd.bean.RichShare;
+import com.crossd.bean.ShareParams;
 import com.crossd.bean.Status;
 import com.crossd.domain.Share;
 import com.crossd.service.ShareService;
@@ -38,6 +39,9 @@ public class ShareController {
 
     /**
      * 加载列表数据
+     *
+     * 动态启动
+     *
      * @param pageNo  当前页 从第1页开始
      * @param pageSize  每页大小
      * @return
@@ -45,9 +49,17 @@ public class ShareController {
     @ResponseBody
     @RequestMapping(value = { "/data" }, method = RequestMethod.GET)
     public Object data(@RequestParam("page") int pageNo,
-                       @RequestParam("rows") int pageSize){
+                       @RequestParam("rows") int pageSize,
+                       @RequestParam(value = "id",defaultValue = "-1") int id,
+                       @RequestParam(value = "userId",defaultValue = "-1")int userId,
+                       @RequestParam(value = "status",defaultValue = "")String status){
 
-        Page<Share> pages = shareService.pageShare(null, pageNo, pageSize);
+        ShareParams shareParams = new ShareParams();
+        shareParams.setUserId(userId);
+        shareParams.setId(id);
+        shareParams.setStatus(status);
+
+        Page<Share> pages = shareService.pageShare(shareParams, pageNo, pageSize);
 
         //转化成页面需要参数
         Grid<Share> shareGrid = new Grid<Share>();
@@ -61,6 +73,7 @@ public class ShareController {
         return jsonObject.toString();
     }
 
+
     /**
      * 跳转jsp
      * @return
@@ -73,6 +86,9 @@ public class ShareController {
 
     /**
      * 加载列表数据
+     *
+     * 照片集锦
+     *
      * @param pageNo  当前页 从第1页开始
      * @param pageSize  每页大小
      * @return

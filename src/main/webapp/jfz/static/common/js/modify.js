@@ -95,32 +95,8 @@ function showGoodsDialog(rowId) {
 		break;
 	
 	}
-	
-	
-	//对商品类型反赋值
-	/*switch (rowObject.consumable_type_id) {
-	case "话费":
-		rowObject.consumable_type_id = "1";
-		break;
-	case "50元京东电子卡":
-		rowObject.consumable_type_id = "2";
-		break;
-	case "唯品会卡":
-		rowObject.consumable_type_id = "3";
-		break;
-	default :
-		alert(rowObject.consumable_type_id);
-		alert("商品类型无法找到,请检查modify.js中的showGoodsDialog方法来适应新品种的添加")
-	
-	}
-	*/
-	//对库存无需反赋值
-	
-	
-	
-	
-	
-	
+
+
 	//对商品状态反赋值
 	switch (rowObject.status) {
 	case "已下架":

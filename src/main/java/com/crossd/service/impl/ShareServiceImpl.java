@@ -1,7 +1,7 @@
 package com.crossd.service.impl;
 
-import com.crossd.bean.ImgUrl;
 import com.crossd.bean.RichShare;
+import com.crossd.bean.ShareParams;
 import com.crossd.domain.Share;
 import com.crossd.mapper.ShareMapper;
 import com.crossd.service.ShareService;
@@ -11,7 +11,6 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,11 +25,11 @@ public class ShareServiceImpl implements ShareService {
 
 
     @Override
-    public Page<Share> pageShare(Share share, int pageNo, int pageSize) {
+    public Page<Share> pageShare(ShareParams shareParams, int pageNo, int pageSize) {
 
         PageHelper.startPage(pageNo,pageSize);
 
-        List<Share> shares =  shareMapper.listAllShare();
+        List<Share> shares =  shareMapper.listShareByParams(shareParams);
         return  (Page<Share>) shares;
     }
 
