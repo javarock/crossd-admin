@@ -91,4 +91,21 @@ public class ShareServiceImpl implements ShareService {
     public void updateShareStatus(int shareId, int from, int to) {
         shareMapper.updateShareStatus(shareId,from,to);
     }
+
+    @Override
+    public void delShare(int shareId) {
+
+        shareMapper.delShare(shareId);
+
+    }
+
+    @Override
+    public void delComment(int shareId) {
+        shareMapper.delComment(shareId);
+    }
+
+    @Override
+    public void delPraise(int shareId) {
+        shareMapper.delPraise(shareId);
+    }
 }

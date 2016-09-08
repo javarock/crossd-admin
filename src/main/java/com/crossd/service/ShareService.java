@@ -28,4 +28,11 @@ public interface ShareService {
      * @param to
      */
      void updateShareStatus(int shareId, int from, int to);
+
+
+     void delShare(int shareId);
+
+    void delComment(int shareId);
+
+    void delPraise(int shareId);
 }

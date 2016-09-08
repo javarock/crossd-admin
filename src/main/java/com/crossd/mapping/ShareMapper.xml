@@ -63,6 +63,18 @@
 
     </update>
 
+
+
+    <delete id="delShare" parameterType="int" >
+        DELETE from tb_share where id = #{shareId}
+    </delete>
+    <delete id="delComment" parameterType="int" >
+        DELETE from tb_comment where share_id = #{shareId}
+    </delete>
+    <delete id="delPraise" parameterType="int" >
+        DELETE from tb_praise where share_id = #{shareId}
+    </delete>
+
 </mapper>
 
 

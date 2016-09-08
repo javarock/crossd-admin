@@ -127,7 +127,20 @@ public class ShareController {
     @RequestMapping(value = {"/downOperate"},method = RequestMethod.POST)
     public void  downOperate(@RequestParam("rowId") int shareId){
 
-        shareService.updateShareStatus(shareId, Status.UP,Status.DOWN);
+//        shareService.updateShareStatus(shareId, Status.UP,Status.DOWN);
+
+        //这里暂时使用数据删除的方式将敏感数据删除
+        //TODO
+        //删除comment动态圈评论
+        //删除praise动态圈点赞
+        //删除share动态圈  事务控制
+
+
+        shareService.delComment(shareId);
+        shareService.delPraise(shareId);
+
+        shareService.delShare(shareId);
+
 
     }
 

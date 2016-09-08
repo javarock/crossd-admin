@@ -25,4 +25,10 @@ public interface ShareMapper {
     List<RichShare>  listAllRichShare();
 
     void updateShareStatus(@Param("shareId") int shareId, @Param("from") int from, @Param("to") int to);
+
+    void delPraise(@Param("shareId")int shareId);
+
+    void delComment(@Param("shareId")int shareId);
+
+    void delShare(@Param("shareId")int shareId);
 }
